@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ドックスワールドワン
+Dokkusuwārudowan</title>
+  <style>
+    
+
+body {
+  background-color: black;
+  margin: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 105%;
+  width: 500px;
+  height: 400px;
+  left: 50%;
+  z-index: 999;
+}
+
+@keyframes pan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+#attack-right{color: red;
+  font-size: 70px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+#attack-left{color: red;
+  font-size: 70px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+h3 {
+  color: red;
+  font-size: 90px;
+  position: fixed;
+  top: 7%;
+  left: 55%;
+  transform: translateX(-50%);
+  z-index: 9999;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+}
+
+h2 {
+  color: red;
+  font-size: 90px;
+  position: fixed;
+  top: 8%;
+  left: 30%;
+  transform: translateX(-50%);
+  z-index: 9999;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+}
+
+.file-uploader-left {
+  display: block;
+  margin-top: 20px;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 99999;
+}
+
+.file-uploader-right {
+  display: block;
+  margin-top: 20px;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 99999;
+}
+
+#file-input-middle {
+  display: block;
+  margin-top: 20px;
+  position: fixed;
+  top: 20px;
+  left: 450px;
+}
+
+
+
+#iframe-container {
+  display: flex;
+  height: 90vh;
+  top:50px;
+  left:235px;
+  width:100%;
+
+
+}
+
+
+
+
+#left-iframe {
+  z-index: 9999; /* Higher z-index for left iframe */
+left: 50px; /* Shift it to the right if needed or adjust according to your layout */
+  width: 800px;
+  height: 1400px;
+  border-color:transparent;
+  position:relative;
+
+}
+
+#right-iframe {
+  z-index: 9999; /* Lower z-index for right iframe */
+  left: -450px; /* Shift it to the right if needed or adjust according to your layout */
+  width: 1000px;
+  height: 1400px;
+  border-color:transparent;
+  position:relative;
+  
+}
+
+#iframe-file {left: 400px;}
+
+
+
+#film {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: clear;
+  
+  z-index: 9999;
+  display: none;
+  opacity: 30%;
+}
+
+#winner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  color: red;
+  text-align: center;
+}
+
+/* CSS for screen shake effect */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 5px) rotate(-5deg); }
+  20%, 40%, 60%, 80% { transform: translate(5px, -5px) rotate(5deg); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+ p {
+      position: fixed;
+      
+      color: white;
+      font-size: 100px;
+      top: 50%;
+      left: 3%;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 red;
+      z-index: 9000;
+      display: none;
+    }
+    .power{color: red;
+  font-size: 90px;
+  position: fixed;
+  top: 8%;
+  left: 40%;
+  transform: translateX(-50%);
+  z-index: 9999;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+}
+
+
+ #skip {
+      position: fixed;
+      width: 10%;
+      color: white;
+      background-color: black;
+      font-size: 60px;
+      top: 90%;
+      left: 3%;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 red;
+      z-index: 9000;
+      
+    }
+
+#switch {
+  position: fixed;
+  width: 10%;
+  color: white;
+  background-color: black;
+  font-size: 60px;
+  top: 90%;
+  left: 70%;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 red;
+  z-index: 900;
+
+}
+   #file-content {
+     width: 300px;
+     height: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     right: 200px;
+     top:-550px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     font-family: Arial, sans-serif;
+     font-size: 16px;
+     position: relative;
+     z-index: 9999
+   }
+
+   #file-iframe{  height: 900px;
+     width: 300px;
+     right: 200px;
+   }
+
+
+.uploadFrame{  z-index: 9999;
+  color: green;
+  font-size: 80px;
+  position: fixed;
+  bottom: 50%;
+  left: 100px;
+  display:none ;}
+
+
+
+#ias {
+  z-index: 9999;
+  width: 800px;
+  height: 800px;
+  color: green;
+  font-size: 80px;
+  position: fixed;
+  bottom: -10%;
+  left: 11%;
+  display: none;
+  
+  opacity: 1%;
+}
+
+
+@keyframes shakeAndBounce {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(50px);
+  }
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1.6);
+  }
+  75% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shakeAndBounce {
+  animation: shakeAndBounce 0.5s infinite;
+}
+
+
+@keyframes slideBack {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px); /* Slide 50px to the left */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideBack {
+  animation: slideBack 1s ease-in-out infinite; /* Adjust duration as needed */
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  .picture {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 400;
+    width: 100%;
+    height: 800%;
+    background-color: rgba(9, 0, 8, 0.8);
+    z-index: 9999;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 24px;
+    color: white;
+  }
+  
+  
+
+  
+  
+  /* Styles for the winner element */
+  #winner {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles for the count element */
+  #win-count {
+   color: red;
+    font-size: 60px;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    
+    
+  }
+   #table {
+            color: red;
+            outline-color: red;
+            background-color: blue;
+            height: 100px;
+            width: 80px;
+            position: absolute;
+            top: 75%;
+            left: 30%;
+            z-index: 9999;
+            display: none; /* Initially hidden */
+        }
+    
+  
+  #law {
+  opacity:40%;}
+  
+#video-container {
+    display: inline-block;
+    max-width: 100%;
+}
+
+#video-container iframe {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+ #fro  {
+  width: 1200px;
+  height: 1200px;
+  top: 0%;
+left: 0%;
+border:thick;
+}
+
+
+
+
+   .points-left{
+     color: green;
+     font-size: 60px;
+     top: 20%;
+     left: 20%;
+     position: fixed;
+   }
+   .points-right{
+     color: green;
+     font-size: 60px;
+     top: 20%;
+     left: 80%;
+     position: fixed;
+   }
+
+  </style>
+</head>
+<body >
+
+  <div id="iframe-container">
+    <!-- Left iframe -->
+    <div class="iframe-wrapper">
+      <iframe id="left-iframe"></iframe>
+    </div>
+
+    <!-- Right iframe -->
+    <div class="iframe-wrapper">
+      <iframe id="right-iframe"></iframe>
+    </div>
+  </div>
+    <div id="table">
+      
+<p id="fro">
+
+</p>
+
+    
+    <iframe id="uploadFrame" name="uploadFrame" ></iframe>
+
+   
+
+
+
+
+
+</body>
+</html>
+</div>
+  
+  <h2 id="hp-left"></h2>
+  <h3 id="hp-right"></h3>
+  <p onclick="playSongOnHTMLUpload()"  >  終わりのない戦い
+  </p>
+  
+<button id="skip" onload="skipToNextSong()">スキップ</button>
+
+ <button id="switch" onclick="sendMessageToChild()">Send Message to Child</button>
+  <h2 id="attack-left"></h2>
+  <h3 id="attack-right"></h3>
+<div id="film">
+</div>
+<div id="win-count"></div>
+<div id="poisoned">
+  
+</div>
+<div id="winner"></div>
+<p id="power"> </p>
+
+<div id="points-left"></div>
+<div id="points-right"></div>
+
+  <input type="file" id="file-input-right" class="file-uploader-right">
+
+  <input type="file" id="file-input-left" class="file-uploader-left">
+
+
+
+<img id= "ias" src="https://media0.giphy.com/media/olImWWIYASCgxFORw1/giphy.gif?cid=790b7611bezl0dx4nv2pc5k2p8yrupd5cfbuzwf43mg6c2pt&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="iron">
+
+
+  
+
+
+
+  <script>
+   
+let pointsValue = 0;
+let hpValue = 0;
+
+const hpLeftElement = document.getElementById("hp-left");
+const hpRightElement = document.getElementById("hp-right");
+var pointsLeftElement = document.getElementById("points-left");
+ var pointsRightElement = document.getElementById("points-right");
+var attackLeftElement = document.getElementById("attack-left");
+
+var attackRightElement = document.getElementById("attack-right");
+
+
+
+// Variable to keep track of the last attacker
+var lastAttacker = null;
+
+
+
+
+
+
+// Function to update HP
+function updateHP(side, hp) {
+  if (side === "left") {
+    hpLeftElement.innerHTML = hp;
+    if (hp <= 0) {
+      attackLeftElement.disabled = true; // Disable attack button if HP is less than or equal to 0
+      checkHPAndSendMessage();
+    }
+  } else if (side === "right") {
+    hpRightElement.innerHTML = hp;
+    if (hp <= 0) {
+      attackRightElement.disabled = true; // Disable attack button if HP is less than or equal to 0
+      checkHPAndSendMessage();
+      
+    }
+  }
+}
+
+
+// Function to update points
+function updatePoints(side, points) {
+  if (side === "left") {
+    document.getElementById("points-left").innerHTML = points;
+  } else if (side === "right") {
+    document.getElementById("points-right").innerHTML = points;
+  }
+}
+// Send message on window load
+window.addEventListener('load', () => {
+  right.contentWindow.postMessage('flip', '*'); // Consider restricting origin for production.
+});
+
+// Event listener for the right file uploader
+var fileInputRight = document.getElementById("file-input-right");
+
+fileInputRight.addEventListener("change", function(event) {
+  if (lastAttacker !== "right") { // Check if last attacker was not "right"
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var fileContents = event.target.result;
+      var hp = extractHPFromFileContents(fileContents);
+      var points = getPointsFromElsewhere(fileContents); // Get points however you already have them
+      updateHP("right", hp);
+      updatePoints("right", points); // Call updatePoints with the existing points value
+      displayHTMLContent("right", fileContents);
+      
+right.contentWindow.postMessage('flip', '*'); 
+
+      lastAttacker = "right"; // Set last attacker to "right"
+    };
+    
+    reader.readAsText(file);
+  }
+});
+
+
+
+// Placeholder.  Replace this with how you actually obtain the points value.
+function getPointsFromElsewhere(fileContents) {
+    // Your code to get the points value from fileContents or any other source
+    // Example:  Assume points is a property of the fileContents object
+    return fileContents.points;
+}
+
+
+
+let urlQueue = []; // Declare the urlQueue variable for wider scope
+let hasLoaded = false; // Flag to check if we have loaded an HTML file
+
+function uploadFromUrlList(urlList) {
+  urlQueue = shuffleArray(urlList.slice()); // Shuffle the URL list and copy it to the queue
+  loadSingleUrl(); // Start loading a single URL
+}
+
+// Example usage: Call the function with an array of URLs
+var urlList = [
+  "newgen.html", // Add more URLs as needed
+];
+uploadFromUrlList(urlList);
+
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // Random index
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+  }
+  return array;
+}
+
+function loadSingleUrl() {
+  if (urlQueue.length === 0 || hasLoaded) {
+    return; // Stop if there are no URLs left or if an HTML file has been loaded
+  }
+  
+  const url = urlQueue.shift(); // Get the next URL from the queue
+  
+  fetch(url) // Fetch the HTML content for the current URL
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+      }
+      return response.text(); // Read response as text
+    })
+    .then(htmlContent => {
+      // Process the HTML content
+      const hp = extractHPFromFileContents(htmlContent); // Extract HP from the HTML
+      updateHP("left", hp); // Update HP in the UI
+      displayHTMLContent("left", htmlContent); // Display the HTML content
+      
+      hasLoaded = true; // Set loaded flag to true to prevent loading more
+      console.log("Loaded HTML:", url); // Optional: log which URL was loaded
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+      // Ignore errors and don't load another URL
+    });
+}
+
+// Assuming 'left' and 'right' are references to the respective iframe elements
+const left = document.getElementById('left-iframe'); // Replace with the actual ID or reference
+const right = document.getElementById('right-iframe'); // Replace with the actual ID or reference
+
+// Event listener for the 'pain' message
+window.addEventListener('message', function(event) {
+    if (event.data === 'pain') {
+        let source;
+        if (event.source === left.contentWindow) {
+            source = 'left-iframe';
+            // Send message to the right iframe
+            right.contentWindow.postMessage('pain', '*');
+            console.log('Sent pain message to: right iframe'); // Log when sent
+        } else if (event.source === right.contentWindow) {
+            source = 'right-iframe';
+            // Send message to the left iframe
+            left.contentWindow.postMessage('pain', '*');
+            console.log('Sent pain message to: left iframe'); // Log when sent
+        } else {
+            source = 'unknown source';
+        }
+        console.log('Received pain message from:', source);
+    }
+});
+
+// Event listener for 'Scared'
+window.addEventListener('message', function(event) {
+    // Check if the message is from the parent
+    if (event.source !== window.parent) {
+        // Do something if the message is not from the parent
+        return;
+    } else {
+        // Check the message content
+        if (typeof event.data === 'string' && event.data === 'Scared') {
+            playerAlive = false; // Set player status to false
+            setTimeout(function() {
+                showImage('https://public-files.gumroad.com/rzewjzyceotbc7qw1onhq7x6oeie', 19000); // Display 'ouch.jpg' from the URL for 3 seconds
+            }, 100); // 2.5 seconds delay before showing the image
+        }
+    }
+});
+
+
+
+
+// Event listener for checking if HP goes to 0 or below
+window.addEventListener("message", function(event) {
+  if (typeof event.data === "number") {
+    var receivedAttackValue = event.data;
+    var source = getSource(event);
+
+    if (source === "left") {
+      
+      var currentRightHP = parseInt(hpRightElement.innerHTML);
+      var newRightHP = currentRightHP - receivedAttackValue;
+      
+      hpRightElement.innerHTML = newRightHP;
+      if (newRightHP <= 0) {
+        console.log("Right Man Died 😰");
+        
+        
+      }
+    } else if (source === "right") {
+      var currentLeftHP = parseInt(hpLeftElement.innerHTML);
+      var newLeftHP = currentLeftHP - receivedAttackValue;
+      
+      hpLeftElement.innerHTML = newLeftHP;
+      if (newLeftHP <= 0) {
+        console.log("Left Man Died 🥶");
+      }
+    }
+
+    console.log("Attack from", source, ". Attack value:", receivedAttackValue);
+  }
+});
+
+
+// Assuming you have some way to track previous HP values
+let previousLeftHP = parseInt(hpLeftElement.innerHTML);
+let previousRightHP = parseInt(hpRightElement.innerHTML);
+
+// References to the child windows (initialize them when you open them)
+let leftChildWindow;  // Reference to the left child window
+let rightChildWindow; // Reference to the right child window
+
+
+
+// Function to check HP values and send message if over 3000
+function checkHPAndSendMessage() {
+    // Get the current HP values
+    let currentLeftHP = parseInt(hpLeftElement.innerHTML);
+    let currentRightHP = parseInt(hpRightElement.innerHTML);
+    // Check if left HP is greater than 3000
+    if (currentLeftHP > 3000 && previousLeftHP <= 3000) {
+        if (leftChildWindow) {
+            leftChildWindow.postMessage({ type: 'xp', value: currentLeftHP }, '*');
+        }
+        previousLeftHP = currentLeftHP; // Update previous HP
+    }
+    // Check if right HP is greater than 3000
+    if (currentRightHP > 3000 && previousRightHP <= 3000) {
+        if (rightChildWindow) {
+            rightChildWindow.postMessage({ type: 'xp', value: currentRightHP }, '*'); // Corrected to use currentRightHP
+        }
+        previousRightHP = currentRightHP; // Update previous HP
+    }
+}
+
+
+// Event listener for messages
+window.addEventListener("message", function(event) {
+    // Check if the message is from the parent
+    if (event.source !== window.parent) {
+        // Do something if the message is not from the parent
+        return;
+    } else {
+        // Check the message content
+        if (event.data.type === 'points') {
+            // Call the experience function with the received value
+            increaseExperience(event.data.value);
+        }
+    }
+});
+
+// Set an interval to check HP every second (1000 ms)
+setInterval(checkHPAndSendMessage, 1000);
+
+
+// Function to handle HP update
+function handleHPUpdate(attacker, attackValue) {
+  var oppositeIframe = attacker === "left" ? window.frames[1] : window.frames[0];
+  var imageArray = [
+    "https://png.pngtree.com/png-clipart/20230613/ourmid/pngtree-distress-or-dirt-and-damage-effect-concept-png-image_7117673.png",
+    "https://www.freeiconspng.com/uploads/blood-png-1.png",
+    "https://www.freeiconspng.com/thumbs/wound-png/blood-clip-art-image-bloodstain-pattern-analysis-drawing-illustration-15.png",
+    "https://www.freeiconspng.com/uploads/blood-transparent-8.png",
+    "https://www.freeiconspng.com/uploads/broken-glass-png-4.png",
+    "https://www.freeiconspng.com/uploads/blood-png-3.png",
+    "https://www.freeiconspng.com/uploads/wound-image-gunshot-wound-transparency--2.png",
+    "https://www.freeiconspng.com/uploads/blood-png-12.png",
+  ]; // Replace with the paths to your images
+  
+  var randomImage = imageArray[Math.floor(Math.random() * imageArray.length)];
+  
+  var imageElement = document.createElement("img");
+  imageElement.src = randomImage;
+  imageElement.style.position = "fixed";
+  
+  // Set random coordinates for the image within the top half of the opposite iframe
+  var maxLeft = oppositeIframe.innerWidth - imageElement.width;
+  var maxTop = oppositeIframe.innerHeight / 2 - imageElement.height;
+  
+  imageElement.style.left = Math.floor(Math.random() * maxLeft) + "px";
+  imageElement.style.top = Math.floor(Math.random() * maxTop) + "px";
+  
+  // Make the image smaller
+  imageElement.style.width = "200px";
+  
+  // Add opacity to the image
+  imageElement.style.opacity = "0.9";
+  
+  oppositeIframe.document.body.appendChild(imageElement);
+}
+
+function playSound() {
+  var audio = new Audio("https://www.myinstants.com/media/sounds/themaideninblacksblessinghighqualityzilsesi.mp3"); // Replace "path/to/sound.mp3" with the actual path to your sound file
+  audio.play();
+}
+
+function playSound2() {
+  var audio = new Audio("https://www.myinstants.com/media/sounds/mortal-kombat-laugh.mp3"); // Replace "path/to/sound.mp3" with the actual path to your sound file
+  audio.play();
+}
+
+
+
+function playSound3() {
+  var audio = new Audio("https://www.myinstants.com/media/sounds/ssj2-power-up-short.mp3"); // Replace "path/to/sound.mp3" with the actual path to your sound file
+  audio.play();
+}
+
+
+
+
+// Function to simulate screen shake
+function shakeScreen(intensity,iframe) {
+  // Calculate the duration based on the attack value
+  var duration = intensity * 6; // Adjust as needed
+
+  // Add .shake class to start animation
+  document.body.classList.add("shake");
+
+  // Remove .shake class after specified duration
+  setTimeout(function() {
+    document.body.classList.remove("shake");
+  }, duration); // Use the calculated duration
+}
+
+
+
+
+
+// Function to handle attack event
+function handleAttackEvent(event) {
+  if (typeof event.data === "number") {
+    var receivedAttackValue = event.data;
+    var source = getSource(event);
+
+    if (source === "left") {
+      var currentRightHP = parseInt(hpRightElement.innerHTML);
+      var newRightHP = currentRightHP - receivedAttackValue;
+     bringLeftIframeToFront();
+      hpRightElement.innerHTML = newRightHP;
+      if (receivedAttackValue >= 130) {
+        handleHPUpdate("left");
+        setTimeout(function() {
+          window.frames[1].postMessage("hurt", "*");
+        }, 6); // 1.1 seconds after the first message
+      }
+          if (receivedAttackValue <= 0) {
+            window.frames[1].postMessage("miss", "*");
+          }
+      if (newRightHP <= 0) {
+        console.log("Right HP Died 😰");
+        showFilm("right");
+        
+        window.frames[1].postMessage("DOA", "*");
+      }  else {
+         console.log("ouch!");
+         // Add a delay of 2 seconds before sending the "ouch!" message
+         
+setTimeout(function() {
+    window.frames[1].postMessage("ouch!", "*");
+    
+}, 900); // 1.1-second delay before the first message
+setTimeout(function() {
+  window.frames[1].postMessage("hurt", "*");
+}, 4); // 1.1 seconds after the first message
+       }
+       
+    } else if (source === "right") {
+      var currentLeftHP = parseInt(hpLeftElement.innerHTML);
+      var newLeftHP = currentLeftHP - receivedAttackValue;
+bringRightIframeToFront()
+      hpLeftElement.innerHTML = newLeftHP;
+      if (receivedAttackValue >= 130) {
+        handleHPUpdate("right");
+        
+      }
+      if (receivedAttackValue <= 0) {
+        window.frames[0].postMessage("miss", "*");
+      
+      }
+      if (newLeftHP <= 0) {
+        console.log("Left HP Died 🥶");
+        showFilm("left");
+        
+          window.frames[0].postMessage("DOA", "*");
+           
+      }  else {
+         console.log("ouch!");
+         // Add a delay of 2 seconds before sending the "ouch!" message
+         setTimeout(function() {
+           window.frames[0].postMessage("ouch!", "*");
+           
+         }, 900); // 2000 milliseconds = 2 seconds
+         
+         setTimeout(function() {
+           window.frames[0].postMessage("hurt", "*");
+         }, 4); // 1.1 seconds after the first message
+       }
+       
+    }
+    console.log("Attack from", source, ". Attack value:", receivedAttackValue);
+  }
+}
+
+
+// Function to handle the message event
+function handleMessageEvent(event) {
+  if (typeof event.data === "object" && event.data.side && event.data.attackValue) {
+    var side = event.data.side;
+    var attackValue = event.data.attackValue;
+    handleAttackBySide(side, attackValue);
+  }
+}
+
+// Event listener to handle message events
+window.addEventListener("message", handleMessageEvent);
+
+
+
+
+
+
+function sendMessageToChild(message, remainingHP) {
+  // Replace this with your code to send the message to the child
+  postMessage({ message: message, remainingHP: remainingHP });
+  console.log("Sending message to child:", message);
+  console.log("Remaining HP:", remainingHP);
+}
+// Event listener for checking if HP goes to 0 or below
+window.addEventListener("message", handleAttackEvent);
+// Event listener for shaking the screen on any attack
+window.addEventListener("message", function(event) {
+  if (typeof event.data === "number") {
+    var receivedAttackValue = event.data;
+    shakeScreen(receivedAttackValue);
+  }
+  
+});
+
+
+
+// Retrieve the win counts from session storage if available
+var leftPlayerWins = parseInt(sessionStorage.getItem("leftPlayerWins")) || 0;
+var rightPlayerWins = parseInt(sessionStorage.getItem("rightPlayerWins")) || 0;
+
+// Function to show the film when a player's HP reaches 0
+function showFilm(side) {
+  var filmElement = document.getElementById("film");
+  var winnerElement = document.getElementById("winner");
+
+  var leftPlayerNameElement = document.getElementById("left-player");
+  var rightPlayerNameElement = document.getElementById("right-player");
+
+  var leftPlayerName = leftPlayerNameElement ? leftPlayerNameElement.textContent : "Left Player";
+  var rightPlayerName = rightPlayerNameElement ? rightPlayerNameElement.textContent : "Right Player";
+
+  if (side === "left") {
+    winnerElement.innerHTML = rightPlayerName + " Wins!";
+    updateAndDisplayWinCounts("left");
+  } else if (side === "right") {
+    winnerElement.innerHTML = leftPlayerName + " Wins!";
+    updateAndDisplayWinCounts("right");
+  }
+
+  filmElement.style.display = "block";
+
+
+  // Redirect to different pages after 10 seconds
+  setTimeout(function(left) {
+    if (side === "left") {
+      window.location.href = "wurtwelu.html";
+    } else if (side === "right") {
+      window.location.href = "wurtwelu.html";
+    }
+  }, 2500); // 10 seconds in milliseconds
+  }
+// Function to update and display win counts
+function updateAndDisplayWinCounts(side) {
+  // Retrieve win counts from session storage
+  let leftPlayerWins = parseInt(sessionStorage.getItem("leftPlayerWins")) || 0;
+  let rightPlayerWins = parseInt(sessionStorage.getItem("rightPlayerWins")) || 0;
+  
+  // Update the win count
+  if (side === "left") {
+    leftPlayerWins++;
+  } else if (side === "right") {
+    rightPlayerWins++;
+  }
+  
+  // Update session storage
+  sessionStorage.setItem("leftPlayerWins", leftPlayerWins);
+  sessionStorage.setItem("rightPlayerWins", rightPlayerWins);
+  
+  // Display the counts (optional - can be moved to the iframes)
+  const countElement = document.getElementById("win-count");
+  if (countElement) {
+    countElement.innerHTML = "Right Player Wins: " + rightPlayerWins + "<br>Left Player Wins: " + leftPlayerWins;
+  }
+}
+// Call updateAndDisplayWinCounts to update and display the win counts when a player wins
+// Update for the respective player based on the game outcome
+// You can call updateAndDisplayWinCounts("left") or updateAndDisplayWinCounts("right") accordingly
+
+// Extract HP value from file contents
+function extractHPFromFileContents(fileContents) {
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(fileContents, "text/html");
+  var hpElement = doc.querySelector("#hp");
+  var hp = 0;
+  if (hpElement) {
+    hp = parseInt(hpElement.innerHTML);
+  }
+  return hp;
+    
+}
+
+
+
+
+function displayHTMLContent(side, fileContents) {
+  var iframeId = side === "left" ? "left-iframe" : "right-iframe";
+  var iframe = document.getElementById(iframeId);
+  var iframeDoc = iframe.contentWindow.document;
+  iframeDoc.open();
+  iframeDoc.write(fileContents);
+  iframeDoc.close();
+}
+
+function getSource(event) {
+  var leftIframe = document.getElementById("left-iframe").contentWindow;
+  var rightIframe = document.getElementById("right-iframe").contentWindow;
+
+  var source = null;
+
+  // Check if the event originated from leftIframe
+  if (event.source === leftIframe) {
+    source = "left"; // set the source to "left" if it came from leftIframe
+    
+    healPlayer("left")
+  }
+
+  // Check if the event originated from rightIframe
+  if (event.source === rightIframe) {
+    source = "right"; // set the source to "right" if it came from rightIframe
+    
+    healPlayer("right")
+  }
+
+  // Return the source or "unknown"
+  return source ? source : "unknown";
+}
+
+
+
+
+var songList = [
+  "https://nu.vgmtreasurechest.com/soundtracks/princess-mononoke-soundtrack/uvsdmbva/19.%20Requiem%202.mp3",
+  "https://nu.vgmtreasurechest.com/soundtracks/neko-no-ongaeshi-original-sound-track/qexcvthd/09.%20At%20the%20Crossroads.mp3",
+  "https://nu.vgmtreasurechest.com/soundtracks/neko-no-ongaeshi-original-sound-track/uojgcrfy/10.%20Following%20Muta.mp3",
+  "https://vgmtreasurechest.com/soundtracks/rgb-akino-arai-2002/tomkdlhhfi/01.%20星の月.mp3",
+  "https://vgmtreasurechest.com/soundtracks/rgb-akino-arai-2002/gbyeeqtuxa/02.%20さかさまの虹.mp3",
+  "https://vgmtreasurechest.com/soundtracks/rgb-akino-arai-2002/afkiluglve/13.%20空の青さ.mp3",
+];
+
+
+
+  let currentSongIndex = -1;
+  const myAudio = new Audio();
+
+  // Play the current song index
+  function playCurrentSong() {
+    if (currentSongIndex < 0) return;
+    myAudio.src = songList[currentSongIndex];
+    myAudio.currentTime = 0;
+    myAudio.play().catch(() => {
+      // Some browsers block autoplay; a first user gesture will start it.
+      // You can show a "Tap to play" UI if needed.
+    });
+  }
+
+  // Pick and play a random song
+  function playRandomSong() {
+    currentSongIndex = Math.floor(Math.random() * songList.length);
+    playCurrentSong();
+  }
+
+  // Skip to a random song
+  function skipToNextSong() {
+    playRandomSong();
+  }
+
+  // Persist state
+  function saveState() {
+    sessionStorage.setItem('currentSongIndex', String(currentSongIndex));
+    sessionStorage.setItem('currentTime', String(myAudio.currentTime));
+  }
+
+  // Restore state if available
+  function loadState() {
+    const savedIndex = sessionStorage.getItem('currentSongIndex');
+    const savedTime = sessionStorage.getItem('currentTime');
+
+    if (savedIndex !== null) {
+      currentSongIndex = parseInt(savedIndex, 10);
+      myAudio.src = songList[currentSongIndex];
+      myAudio.currentTime = savedTime ? parseFloat(savedTime) : 0;
+    }
+  }
+
+  // Save before leaving
+  window.addEventListener('beforeunload', saveState);
+
+  // Autoplay a random song on load (unless there was a saved state)
+  document.addEventListener('DOMContentLoaded', () => {
+    loadState();
+    if (currentSongIndex >= 0) {
+      // Resume saved song
+      myAudio.play().catch(() => {});
+    } else {
+      // No saved state → play random onload
+      playRandomSong();
+    }
+  });
+
+  // Optional: keep the music going with random next
+  myAudio.addEventListener('ended', playRandomSong);
+
+  // Optional: ensure playback starts after first user interaction if autoplay is blocked
+  document.addEventListener('click', function firstPlayOnce() {
+    if (myAudio.paused) myAudio.play().catch(() => {});
+    document.removeEventListener('click', firstPlayOnce);
+  }, { once: true });
+
+
+
+function healPlayerAndDisplayImage() {
+  var currentPlayerHPLeft = parseInt(hpLeftElement.innerHTML);
+  var currentPlayerHPRight = parseInt(hpRightElement.innerHTML);
+
+  if (currentPlayerHPLeft >= 1 && currentPlayerHPLeft <= 10) {
+    var healedHPLeft = currentPlayerHPLeft + 3000;
+    hpLeftElement.innerHTML = healedHPLeft;
+    console.log("Left Player Healed! HP:", healedHPLeft);
+    
+  
+  } else {
+    console.log("Invalid HP value for healing (Left Player).");
+    
+  }
+
+  if (currentPlayerHPRight >= 1 && currentPlayerHPRight <= 10) {
+    var healedHPRight = currentPlayerHPRight + 3000;
+    hpRightElement.innerHTML = healedHPRight;
+    console.log("Right Player Healed! HP:", healedHPRight);
+  
+    
+  } else {
+    console.log("Invalid HP value for healing (Right Player).");
+  }
+}
+
+
+const backgrounds = [
+ "url('https://public-files.gumroad.com/e40tsjhi9apmaq23nf870pj27jd4')",
+ "url('https://public-files.gumroad.com/uxea6kun5m1gsqf3vbdb0rmwb8tp')",
+ "url('https://public-files.gumroad.com/5t5fw6dgy7s7ze68up20fwectcnj')",
+  "url('https://public-files.gumroad.com/ej8steq3fqkc3t120xlj8lnx4yp9')",
+ "url('https://public-files.gumroad.com/0l6y0lbj4ukiv2vqietuehvt0j1k')",
+ "url('https://public-files.gumroad.com/3aooadq9743emo66u8fadulwcron')",
+ "url('https://public-files.gumroad.com/u1xokdzlbi7ci9ijqndnr1q1mxn8')",
+"url('https://public-files.gumroad.com/02kmbn0jgbex58uctdagaxbkgi7t')",
+  // Add more background URLs here
+];
+
+function getRandomBackground() {
+  const randomIndex = Math.floor(Math.random() * backgrounds.length);
+  return backgrounds[randomIndex];
+}
+
+function setRandomBackground() {
+  const randomBackground = getRandomBackground();
+  document.body.style.backgroundImage = randomBackground;
+}
+
+setRandomBackground(); // Set random background on startup
+
+
+
+
+
+
+function healPlayer() {
+  var currentPlayerHPLeft = parseInt(hpLeftElement.innerHTML);
+  var currentPlayerHPRight = parseInt(hpRightElement.innerHTML);
+  
+  var hpToHeal = [9999, 8888, 7777, 6666, 5555, 4444, 3333, 2222, 1111, 999, 888, 777, 666, 555, 444, 333, 222, 111, 10,9,8,7,6,5,4,3,2,1,];
+  
+  if (hpToHeal.includes(currentPlayerHPLeft)) {
+    var healedHPLeft = currentPlayerHPLeft + 2500;
+    hpLeftElement.innerHTML = healedHPLeft;
+    console.log("Left Player Healed! HP:", healedHPLeft);
+    
+
+  } else {
+    console.log("Invalid HP value for healing (Left Player).");
+  }
+  
+  if (hpToHeal.includes(currentPlayerHPRight)) {
+    var healedHPRight = currentPlayerHPRight + 2500;
+    hpRightElement.innerHTML = healedHPRight;
+    console.log("Right Player Healed! HP:", healedHPRight);
+    
+
+  } else {
+    console.log("Invalid HP value for healing (Right Player).");
+  }
+}
+
+
+
+let leftWinner = "Left Player";
+let rightWinner = "Right Player";
+let leftRemainingHP = 0;
+let rightRemainingHP = 0;
+
+function restartGame() {
+    // Save the winners and remaining HP
+    let savedLeftWinner = leftWinner;
+    let savedRightWinner = rightWinner;
+    let savedLeftRemainingHP = leftRemainingHP;
+    let savedRightRemainingHP = rightRemainingHP;
+
+    // Reset the game
+    // Add your game reset logic here
+
+    // Set the saved winners and remaining HP back
+    leftWinner = savedLeftWinner;
+    rightWinner = savedRightWinner;
+    leftRemainingHP = savedLeftRemainingHP;
+    rightRemainingHP = savedRightRemainingHP;
+
+    console.log("Game restarted. Left Winner: " + leftWinner + ", Left Remaining HP: " + leftRemainingHP + ", Right Winner: " + rightWinner + ", Right Remaining HP: " + rightRemainingHP);
+}
+
+// Call the restartGame() function whenever you need to restart the game
+
+
+
+
+
+
+
+
+function bringLeftIframeToFront() {
+  const leftIframe = document.getElementById('left-iframe');
+  const rightIframe = document.getElementById('right-iframe');
+  
+  // Increase the z-index of the left iframe
+  leftIframe.style.zIndex = 1000;
+  
+  // Lower the z-index of the right iframe
+  rightIframe.style.zIndex = 999;
+}
+
+
+
+function bringRightIframeToFront() {
+  const leftIframe = document.getElementById('left-iframe');
+  const rightIframe = document.getElementById('right-iframe');
+  
+  // Increase the z-index of the right iframe
+  rightIframe.style.zIndex = 1000;
+  
+  // Lower the z-index of the left iframe
+  leftIframe.style.zIndex = 999;
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
+ 
